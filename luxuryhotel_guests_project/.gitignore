@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual Environment
+venv/
+env/
+
+# Django and Database Files
+db.sqlite3
+local_settings.py
+
+# CRITICAL SECURITY FILES 
+.env
+
+# IDE/System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

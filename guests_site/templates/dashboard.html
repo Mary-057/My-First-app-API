@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Staff Dashboard{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-3xl font-bold mb-6 text-blue-700">Guest Registration Dashboard</h1>
+    
+    <div class="flex justify-end mb-4">
+        <a href="{% url 'register' %}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition">
+            + Register New Guest
+        </a>
+    </div>
+
+    <div class="overflow-x-auto bg-white rounded-lg shadow">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+                <tr class="bg-gray-50">
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Guest Name / Room</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Check-in Date</th>
+                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                
+                {% for guest in all_guests %}
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">{{ guest.first_name }} {{ guest.last_name }}</div>
+                        <div class="text-xs text-gray-500">Room {{ guest.room_number }} for {{ guest.number_of_nights }} Nights</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">{{ guest.recorded_by }}</div>
+                        <div class="text-xs text-gray-500">{{ guest.check_in_date|date:"M d" }}</div>
+                    </td>
+
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ guest.check_in_date|date:"M d, Y" }}
+                    </td>
+
+                    
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="{% url 'guest_update' pk=guest.pk %}" 
+                           class="text-indigo-600 hover:text-indigo-900 transition mr-3">
+                            Edit
+                        </a>
+                        
+                        <a href="{% url 'guest_delete' pk=guest.pk %}" 
+                           class="text-red-600 hover:text-red-900 transition">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guest Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); width: 500px; }
+        h1 { color: #007bff; margin-bottom: 25px; text-align: center; }
+        .detail-item { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+        .label { font-weight: bold; color: #555; }
+        .value { color: #333; }
+        .action-link { display: block; margin-top: 20px; text-align: center; color: #007bff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guest Record: {{ object.first_name }} {{ object.last_name }}</h1>
+        
+        <!-- The 'object' variable is automatically provided by DetailView -->
+        <div class="detail-item">
+            <span class="label">Room Number:</span>
+            <span class="value">{{ object.room_number }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="label">Nights Booked:</span>
+            <span class="value">{{ object.number_of_nights }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="label">Check-in Date:</span>
+            <span class="value">{{ object.check_in_date|date:"F j, Y" }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="label">Check-out Date:</span>
+            <span class="value">{{ object.check_out_date|date:"F j, Y" }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="label">Recorded By:</span>
+            <span class="value">{{ object.recorded_by }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="label">Time Logged:</span>
+            <span class="value">{{ object.date_recorded|date:"M d, P" }}</span>
+        </div>
+
+        <a href="{% url 'dashboard' %}" class="action-link">← Back to Staff Dashboard</a>
+    </div>
+</body>
+</html>
