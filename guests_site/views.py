@@ -1,3 +1,4 @@
+from .serializers import GuestSerializer
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView 
@@ -5,7 +6,7 @@ from django.urls import reverse_lazy
 from .forms import guestsForm
 from .models import guests_registration
 from rest_framework import viewsets
-from .serializers import GuestSerializers
+
 
 
 def register_guest(request):
