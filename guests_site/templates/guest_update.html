@@ -4,19 +4,16 @@
 {% block content %}
 <div class="main-container">
     <h1>Edit Guest Registration</h1>
-    
-    <!-- The form method MUST be POST to send data back and trigger the UpdateView's save logic -->
+
     <form method="POST">
         {% csrf_token %}
         
-        <!-- This is the command that draws all the pre-filled form fields -->
         {{ form.as_p }} 
 
         <button type="submit" class="button">Save Changes</button>
     </form>
     
-    <div class="mt-4">
-        <!-- Provides a link back to the main data table -->
+    <div class="mt-4">    
         <a href="{% url 'dashboard' %}" class="link">Cancel and Go Back</a>
     </div>
 </div>

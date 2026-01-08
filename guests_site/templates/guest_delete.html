@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Deletion</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); width: 400px; text-align: center; }
+        h1 { color: #dc3545; margin-bottom: 20px; }
+        p { margin-bottom: 25px; font-size: 1.1em; }
+        .button-group a, button { text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background-color 0.3s; margin: 0 10px; }
+        .btn-confirm { background-color: #dc3545; color: white; border: none; }
+        .btn-cancel { background-color: #6c757d; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Confirm Deletion</h1>
+        <p>Are you sure you want to delete the registration for:</p>
+        <p><strong>{{ object.first_name }} {{ object.last_name }}</strong> (Room {{ object.room_number }})?</p>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="button-group">
+                <button type="submit" class="btn-confirm">Yes, Delete Permanently</button>
+                <a href="{% url 'dashboard' %}" class="btn-cancel">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

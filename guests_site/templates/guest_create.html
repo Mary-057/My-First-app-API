@@ -21,9 +21,7 @@
         <form method="POST">
             {% csrf_token %}
             
-            <!-- This renders all the form fields defined in your forms.py -->
             {{ form.as_p }} 
-
             <button type="submit">Complete Registration</button>
         </form>
     </div>

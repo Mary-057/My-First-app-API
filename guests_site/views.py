@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.urls import reverse_lazy
 from .forms import guestsForm
 from .models import guests_registration
+from rest_framework import viewsets
+from .serializers import GuestSerializers
 
 
 def register_guest(request):
@@ -20,7 +22,6 @@ def dashboard_view(request):
     all_guests = guests_registration.objects.all().order_by('-date_recorded')
     context = {'all_guests': all_guests} 
     return render(request, 'dashboard.html', context)
-
 
 
 class GuestUpdateView(UpdateView):
@@ -47,3 +48,8 @@ class GuestCreateView(CreateView):
     form_class = guestsForm
     template_name = "guest_create.html"
     success_url = reverse_lazy('dashboard')
+
+
+    class GuestViewSet(viewsets.ModelViewSet):
+        queryset = guests_registration.objects.all()
+        serializer_class = GuestSerializer

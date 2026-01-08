@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Staff Login</title>
-    <!-- Basic styling to ensure the form appears centered -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,13 +54,11 @@
         <form method="post">
             {% csrf_token %}
             
-            <!-- This automatically renders the Username and Password fields -->
             {{ form.as_p }} 
 
             <button type="submit">Log In</button>
         </form>
         
-        <!-- Link back to the main registration form if needed -->
         <p style="text-align: center; margin-top: 15px;"><a href="/register/">Back to Registration</a></p>
     </div>
 </body>
