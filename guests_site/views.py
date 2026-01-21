@@ -51,6 +51,6 @@ class GuestCreateView(CreateView):
     success_url = reverse_lazy('dashboard')
 
 
-    class GuestViewSet(viewsets.ModelViewSet):
-        queryset = guests_registration.objects.all()
-        serializer_class = GuestSerializer
+class GuestViewSet(viewsets.ModelViewSet):
+    queryset = guests_registration.objects.all()
+    serializer_class = GuestSerializer
