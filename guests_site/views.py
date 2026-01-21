@@ -10,7 +10,6 @@ from rest_framework import viewsets
 def guest_saved_success(request):
     return render(request, 'saved.html')
 
-
 def register_guest(request):
     form = guestsForm()
     if request.method == 'POST':
