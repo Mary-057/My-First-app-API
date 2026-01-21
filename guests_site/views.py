@@ -7,18 +7,19 @@ from .forms import guestsForm
 from .models import guests_registration
 from rest_framework import viewsets
 
-def guest_saved_success(request):
-    return render(request, 'saved.html')
-
 def register_guest(request):
-    form = guestsForm()
     if request.method == 'POST':
         form = guestsForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('saved_success') 
-    context = {"form": form}
+            return redirect('saved_success')
+    else:
+        form = guestsForm()
+    context = {"form": form} 
+    return render(request, 'home.html', context)
+def guest_saved_success(request):
     return render(request, 'saved.html')
+
 @login_required
 def dashboard_view(request):
     all_guests = guests_registration.objects.all().order_by('-date_recorded')
