@@ -4,17 +4,16 @@
 
 {% block content %}
 <div class="flex items-center justify-center min-h-[70vh] px-4 py-12">
-    <!-- Success Card -->
+    
     <div class="max-w-xl w-full bg-white rounded-3xl shadow-2xl p-10 md:p-14 border border-gray-100 text-center">
         
-        <!-- Success Icon -->
+        
         <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-100 mb-8">
             <svg class="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
             </svg>
         </div>
 
-        <!-- Bold Heading (Matched to Home Page) -->
         <div class="mb-6">
             <h1 class="text-4xl font-black text-gray-900 tracking-tighter uppercase">
                 LUXURY HOTEL <span class="text-blue-600">&</span> SUITES
@@ -22,13 +21,13 @@
             <div class="h-1 w-16 bg-blue-600 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <!-- Success Message -->
+        
         <div class="mb-10">
             <h2 class="text-2xl font-bold text-gray-800">Registration Complete!</h2>
             <p class="text-gray-500 mt-2 text-lg">Customer has been registered successfully in the system.</p>
         </div>
 
-        <!-- Action Button -->
+       
         <div class="pt-2">
             <a href="{% url 'register' %}" class="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-2xl transition duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-blue-200 uppercase tracking-wider">
                 Register New Customer
